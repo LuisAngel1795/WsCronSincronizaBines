@@ -1,0 +1,29 @@
+plugins {
+    // Apply the java-library plugin for API and implementation separation.
+    id 'war'
+}
+
+version = "0.1"
+
+repositories {
+    // Use JCenter for resolving dependencies.
+     mavenCentral()
+    jcenter()
+   
+}
+
+dependencies {
+    // Use JUnit test framework.
+    testImplementation 'junit:junit:4.13'
+  	implementation 'ch.qos.logback:logback-core:1.2.11'
+  	implementation 'ch.qos.logback:logback-classic:1.2.11'   
+  	implementation 'org.slf4j:slf4j-api:1.7.15'   
+  	implementation fileTree(dir: 'libs', include: ['*.jar'])   
+}
+
+
+war {
+	enabled=true
+	archiveName='WSCronSincronizaBines.war'
+	duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+}
